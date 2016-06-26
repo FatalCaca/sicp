@@ -1,0 +1,18 @@
+(define (fast-multiply a b)
+  (define (double a) (* 2 a))
+  (define (halve a) (/ a 2))
+  (define (iteration a b result)
+    (cond ((= b 0) result)
+          ((even? b) (iteration (double a) (halve b) result))
+          (else (iteration a (- b 1) (+ result a)))))
+
+  (iteration a b 0)
+)
+
+(fast-multiply 1 2)
+(fast-multiply 2 2)
+(fast-multiply 10 2)
+(fast-multiply 1 18)
+(fast-multiply 42 3)
+(fast-multiply 18 5)
+(fast-multiply 5 5)
